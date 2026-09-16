@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: Fondazione Istituto Italiano di Tecnologia (IIT)
-// SPDX-License-Identifier: BSD-3-Clause
+// SPDX-FileCopyrightText: Generative Bionics S.R.L.
+// SPDX-License-Identifier: LicenseRef-GenerativeBionics-AllRightsReserved
 
 #ifndef TRINTRIN_BINDINGS_MSGS_HUMAN_STATE_HORIZON_H
 #define TRINTRIN_BINDINGS_MSGS_HUMAN_STATE_HORIZON_H
