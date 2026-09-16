@@ -8,12 +8,12 @@ namespace yarp trintrin.msgs
 /**
  * A HumanState tagged with the time at which it is meant to hold.
  *
- * `timeOffset` is expressed in seconds, relative to the timestamp of the message
+ * `timeInMs` is expressed in milliseconds, relative to the timestamp of the message
  * carrying this sample. A zero offset denotes the current desired state, a
  * positive one a future desired state.
  */
 struct TimedHumanState {
-    1: double timeOffset;
+    1: i32 timeInMs;
     2: HumanState.HumanState state;
 }
 
@@ -24,7 +24,7 @@ struct TimedHumanState {
  * trajectory fed to a motion-tracking policy that needs look-ahead), instead of a
  * single instantaneous state.
  *
- * The samples must be sorted by non-decreasing `timeOffset`. `samples[0]` is
+ * The samples must be sorted by non-decreasing `timeInMs`. `samples[0]` is
  * typically the current desired state, i.e. it carries a zero offset.
  */
 struct HumanStateHorizon {

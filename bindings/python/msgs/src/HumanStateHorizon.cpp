@@ -22,7 +22,7 @@ namespace trintrin {
 
                 py::class_<TimedHumanState>(module, "TimedHumanState")
                     .def(py::init())
-                    .def_readwrite("timeOffset", &TimedHumanState::timeOffset)
+                    .def_readwrite("timeInMs", &TimedHumanState::timeInMs)
                     .def_readwrite("state", &TimedHumanState::state)
                     .def("__str__", &TimedHumanState::toString)
                     .def("toString", &TimedHumanState::toString);
