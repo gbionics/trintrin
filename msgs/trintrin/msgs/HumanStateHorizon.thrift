@@ -8,9 +8,7 @@ namespace yarp trintrin.msgs
 /**
  * A HumanState tagged with the time at which it is meant to hold.
  *
- * `time` is expressed in milliseconds, relative to the timestamp of the message
- * carrying this sample. A zero offset denotes the current desired state, a
- * positive one a future desired state.
+ * `time` is expressed in milliseconds.
  */
 struct TimedHumanState {
     1: i32 time;
