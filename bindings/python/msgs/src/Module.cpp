@@ -8,6 +8,7 @@
 #include <trintrin/bindings/msgs/HumanState.h>
 #include <trintrin/bindings/msgs/HumanStateHorizon.h>
 #include <trintrin/bindings/msgs/HumanWrench.h>
+#include <trintrin/bindings/msgs/PlanarVelocity.h>
 #include <trintrin/bindings/msgs/WearableActuators.h>
 #include <trintrin/bindings/msgs/WearableData.h>
 #include <trintrin/bindings/msgs/WearableTargets.h>
@@ -25,6 +26,7 @@ namespace trintrin {
                 CreateHumanState(module);
                 CreateHumanStateHorizon(module);
                 CreateHumanWrench(module);
+                CreatePlanarVelocity(module);
                 CreateWearableActuators(module);
                 CreateWearableData(module);
                 CreateWearableTargets(module);
