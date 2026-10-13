@@ -28,7 +28,7 @@ See https://github.com/robotology/human-dynamics-estimation/pull/427 for an exam
 
 ## Compatibility Policy
 
-Patch releases does not modify at all the public headers (i.e. the installed `.h` and `.hpp`) files of the project, or the messages definitions in `.msg` YARP files. This is done to ensure that no ABI change will occur in patch releases, without having to manually track ABI changes.
+Patch releases does not modify any existing the public headers (i.e. the installed `.h` and `.hpp`) files of the project, or any existing messages definitions in `.thrift` YARP files, but can add new public headers or new `.thrift` YARP files. This is done to ensure that no ABI change will occur in patch releases, without having to manually track ABI changes.
 
 ## Bug reports and support
 
