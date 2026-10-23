@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: Fondazione Istituto Italiano di Tecnologia (IIT)
+// SPDX-FileCopyrightText: Generative Bionics S.R.L.
 // SPDX-License-Identifier: BSD-3-Clause
 
 #ifndef TRINTRIN_BINDINGS_MSGS_TACTILE_H
