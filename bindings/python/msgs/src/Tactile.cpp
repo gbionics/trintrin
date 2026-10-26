@@ -6,7 +6,6 @@
 
 #include <trintrin/msgs/CompleteTactileFrame.h>
 #include <trintrin/msgs/CompleteTactileSensor.h>
-#include <trintrin/msgs/ForceVector3.h>
 #include <trintrin/msgs/TactileContactPoint.h>
 #include <trintrin/msgs/TactileFrameMetadata.h>
 
@@ -31,20 +30,10 @@ namespace trintrin {
                     .def("__str__", &TactileFrameMetadata::toString)
                     .def("toString", &TactileFrameMetadata::toString);
 
-                py::class_<ForceVector3>(module, "ForceVector3")
-                    .def(py::init())
-                    .def_readwrite("x", &ForceVector3::x)
-                    .def_readwrite("y", &ForceVector3::y)
-                    .def_readwrite("z", &ForceVector3::z)
-                    .def("__str__", &ForceVector3::toString)
-                    .def("toString", &ForceVector3::toString);
-
                 py::class_<TactileContactPoint>(module, "TactileContactPoint")
                     .def(py::init())
                     .def_readwrite("contact_index", &TactileContactPoint::contact_index)
-                    .def_readwrite("x_mm", &TactileContactPoint::x_mm)
-                    .def_readwrite("y_mm", &TactileContactPoint::y_mm)
-                    .def_readwrite("z_mm", &TactileContactPoint::z_mm)
+                    .def_readwrite("position_mm", &TactileContactPoint::position_mm)
                     .def_readwrite("force_n", &TactileContactPoint::force_n)
                     .def("__str__", &TactileContactPoint::toString)
                     .def("toString", &TactileContactPoint::toString);

@@ -14,16 +14,16 @@ def test_tactile_message_bindings():
     frame.metadata.timestamp_s = 1.25
     frame.metadata.all_sensors_valid = True
 
-    force = ttm.ForceVector3()
+    force = ttm.VectorXYZ()
     force.x = 1.0
     force.y = 2.0
     force.z = 3.0
 
     contact = ttm.TactileContactPoint()
     contact.contact_index = 0
-    contact.x_mm = 4.0
-    contact.y_mm = 5.0
-    contact.z_mm = 6.0
+    contact.position_mm.x = 4.0
+    contact.position_mm.y = 5.0
+    contact.position_mm.z = 6.0
     contact.force_n = 7.0
 
     sensor = ttm.CompleteTactileSensor()
@@ -38,6 +38,7 @@ def test_tactile_message_bindings():
     assert frame.metadata.sequence == 42
     assert frame.sensors[0].sensor_name == "THUMB_PROXIMAL"
     assert frame.sensors[0].resultant_force_n.z == 3.0
+    assert frame.sensors[0].contacts[0].position_mm.y == 5.0
     assert frame.sensors[0].contacts[0].force_n == 7.0
 
     port = ttm.BufferedPortCompleteTactileFrame()
