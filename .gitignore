@@ -40,3 +40,7 @@ build*/
 
 # Python cache
 __pycache__/
+
+# Pixi environments and locally generated lockfile
+.pixi/
+pixi.lock
