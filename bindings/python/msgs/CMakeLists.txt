@@ -11,6 +11,7 @@ set(TRINTRIN_BINDINGS_MSGS_SRC
     src/HumanStateHorizon.cpp
     src/HumanWrench.cpp
     src/PlanarVelocity.cpp
+    src/Tactile.cpp
     src/WearableActuators.cpp
     src/WearableData.cpp
     src/WearableTargets.cpp
@@ -24,6 +25,7 @@ set(TRINTRIN_BINDINGS_MSGS_HDR
     ${H_PREFIX}/HumanStateHorizon.h
     ${H_PREFIX}/HumanWrench.h
     ${H_PREFIX}/PlanarVelocity.h
+    ${H_PREFIX}/Tactile.h
     ${H_PREFIX}/WearableActuators.h
     ${H_PREFIX}/WearableData.h
     ${H_PREFIX}/WearableTargets.h
