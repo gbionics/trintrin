@@ -30,7 +30,7 @@ cmake-check = { cmd = "cmake-package-check trintrin --targets trintrin::msgs", d
 
 [package]
 name = "trintrin"
-version = "0.3.0"
+version = "0.3.1"
 
 [package.build.backend]
 name = "pixi-build-cmake"
