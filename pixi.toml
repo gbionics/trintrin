@@ -1,0 +1,56 @@
+[workspace]
+name = "trintrin"
+description = "Messages and interfaces used in Artificial Mechanical Intelligence"
+channels = ["conda-forge"]
+platforms = ["linux-64", "linux-aarch64", "osx-arm64", "win-64"]
+preview = ["pixi-build"]
+
+[dev]
+# Reuse package dependencies and backend build tools for local development.
+trintrin = { path = "." }
+
+[dependencies]
+cmake-package-check = "*"
+pkg-config = "*"
+pytest = "*"
+
+[activation.env]
+CMAKE_INSTALL_PREFIX = "$CONDA_PREFIX"
+
+[target.win-64.activation.env]
+CMAKE_INSTALL_PREFIX = "%CONDA_PREFIX%/Library"
+
+[tasks]
+configure = 'cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DTRINTRIN_COMPILE_PYTHON_BINDINGS=ON -DTRINTRIN_DETECT_ACTIVE_PYTHON_SITEPACKAGES=ON'
+build = { cmd = "cmake --build build --config Release --parallel", depends-on = ["configure"] }
+check-version-consistency = { cmd = "python scripts/check_version_consistency.py", depends-on = ["configure"] }
+install = { cmd = "cmake --install build --config Release", depends-on = ["build"] }
+test = { cmd = "ctest --test-dir build --build-config Release --output-on-failure --no-tests=error", depends-on = ["install"] }
+cmake-check = { cmd = "cmake-package-check trintrin --targets trintrin::msgs", depends-on = ["install"] }
+
+[package]
+name = "trintrin"
+version = "0.3.0"
+
+[package.build.backend]
+name = "pixi-build-cmake"
+version = "*"
+
+[package.build.config]
+extra-args = [
+    "-DBUILD_TESTING=OFF",
+    "-DTRINTRIN_COMPILE_PYTHON_BINDINGS=ON",
+    "-DTRINTRIN_DETECT_ACTIVE_PYTHON_SITEPACKAGES=ON",
+]
+# The message generator reads these files during the build.
+extra-input-globs = ["msgs/**/*.thrift"]
+
+[package.host-dependencies]
+pybind11 = "*"
+python = "*"
+yarp = ">=3.2"
+ycm-cmake-modules = "*"
+
+[package.run-dependencies]
+python = "*"
+yarp = ">=3.2"
