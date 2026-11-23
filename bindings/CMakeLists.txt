@@ -10,15 +10,15 @@ else()
 endif()
 
 if(TRINTRIN_PYTHON_BINDINGS_BUILD_STANDALONE)
-  cmake_minimum_required(VERSION 3.16)
+  cmake_minimum_required(VERSION 3.18)
   project(trintrinBindings)
-  find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+  find_package(Python3 COMPONENTS Interpreter Development.Module REQUIRED)
   find_package(pybind11 REQUIRED)
   find_package(trintrin REQUIRED)
 endif()
 
 if(TRINTRIN_COMPILE_PYTHON_BINDINGS)
-    find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+    find_package(Python3 COMPONENTS Interpreter Development.Module REQUIRED)
     find_package(pybind11 REQUIRED)
 
     set(NEW_LINE "\n")
